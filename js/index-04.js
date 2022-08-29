@@ -220,86 +220,86 @@
 //     return commonElements;
 // }
   
-12/48
+// 12/48
 
-function getCommonElements(firstArray, secondArray) {
-    const commonElements = [];
+// function getCommonElements(firstArray, secondArray) {
+//     const commonElements = [];
   
-    firstArray.forEach(function (element) {
-      if (secondArray.includes(element)) {
-        commonElements.push(element);
-      }
-    });
+//     firstArray.forEach(function (element) {
+//       if (secondArray.includes(element)) {
+//         commonElements.push(element);
+//       }
+//     });
   
-    return commonElements;
-}
+//     return commonElements;
+// }
 
 
 
-const getCommonElements = (firstArray, secondArray) => {
-    const commonElements = [];
+// const getCommonElements = (firstArray, secondArray) => {
+//     const commonElements = [];
   
-    firstArray.forEach((element) => {
-      if (secondArray.includes(element)) {
-        commonElements.push(element);
-      }
-    });
+//     firstArray.forEach((element) => {
+//       if (secondArray.includes(element)) {
+//         commonElements.push(element);
+//       }
+//     });
   
-    return commonElements;
-}
+//     return commonElements;
+// }
   
 
-13/48
-Функція changeEven(numbers, value) приймає масив чисел numbers і оновлює кожен елемент, значення якого - це парне число, додаючи до нього значення параметра value.
+// 13/48
+// Функція changeEven(numbers, value) приймає масив чисел numbers і оновлює кожен елемент, значення якого - це парне число, додаючи до нього значення параметра value.
 
-Виконай рефакторинг функції таким чином, щоб вона стала чистою - не змінювала масив чисел numbers, а створювала, наповнювала і повертала новий масив з оновленими значеннями.
+// Виконай рефакторинг функції таким чином, щоб вона стала чистою - не змінювала масив чисел numbers, а створювала, наповнювала і повертала новий масив з оновленими значеннями.
 
-function changeEven(numbers, value) { 
+// function changeEven(numbers, value) { 
 
-    for (let i = 0; i < numbers.length; i += 1) {
-        if (numbers[i] % 2 === 0) {
-          numbers[i] = numbers[i] + value;
-        }
-    }   
-}
+//     for (let i = 0; i < numbers.length; i += 1) {
+//         if (numbers[i] % 2 === 0) {
+//           numbers[i] = numbers[i] + value;
+//         }
+//     }   
+// }
 
-1 var
+// 1 var
 
-function changeEven(numbers, value) {
-    const newArray = numbers.map(number => number % 2 === 0 ? number += value : number
-    );
-    return newArray;
-}
+// function changeEven(numbers, value) {
+//     const newArray = numbers.map(number => number % 2 === 0 ? number += value : number
+//     );
+//     return newArray;
+// }
 
-2 var
+// 2 var
 
-function changeEven(numbers, value) {
-    const newArray = [];
-    for (let i = 0; i < numbers.length; i += 1) {
+// function changeEven(numbers, value) {
+//     const newArray = [];
+//     for (let i = 0; i < numbers.length; i += 1) {
 
-        if (numbers[i] % 2 === 0) {
-          newArray.push(numbers[i] + value);
-        //   console.log(numbers);
-          console.log(newArray);
-        }
-    }
+//         if (numbers[i] % 2 === 0) {
+//           newArray.push(numbers[i] + value);
+//         //   console.log(numbers);
+//           console.log(newArray);
+//         }
+//     }
 
-  return newArray;
-}
-
-
-14/48
-
-Доповни код таким чином, щоб у змінній planetsLengths вийшов масив довжин назв планет. Обов'язково використовуй метод map().
-
-const planets = ["Earth", "Mars", "Venus", "Jupiter"];
-
-const planetsLengths = planets;
+//   return newArray;
+// }
 
 
-const planets = ["Earth", "Mars", "Venus", "Jupiter"];
+// 14/48
 
-const planetsLengths = planets.map(planet => planet.length);
+// Доповни код таким чином, щоб у змінній planetsLengths вийшов масив довжин назв планет. Обов'язково використовуй метод map().
+
+// const planets = ["Earth", "Mars", "Venus", "Jupiter"];
+
+// const planetsLengths = planets;
+
+
+// const planets = ["Earth", "Mars", "Venus", "Jupiter"];
+
+// const planetsLengths = planets.map(planet => planet.length);
 
 // 15/48
 
