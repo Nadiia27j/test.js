@@ -801,130 +801,130 @@
 
 // console.log(selectedOptionValue );
 
-const instruments = [{
-	id: 1,
-	img: 'https://static.dnipro-m.ua/cache/products/1754/catalog_origin_141546.jpg',
-	name: 'Молоток',
-	price: 150
-},
-	{
-		id: 4,
-		img: 'https://static.dnipro-m.ua/cache/products/1754/catalog_origin_141546.jpg',
-		name: 'Молоток',
-		price: 175
-	},{
-		id: 2,
-		img: 'https://static.dnipro-m.ua/cache/products/5098/catalog_origin_195568.jpg',
-		name: 'Перфоратор',
-		price: 3000
-	}, {
-		id: 3,
-		img: 'https://static.dnipro-m.ua/cache/products/2023/catalog_origin_200763.jpg',
-		name: 'Рівень',
-		price: 2000
-	}]
+// const instruments = [{
+// 	id: 1,
+// 	img: 'https://static.dnipro-m.ua/cache/products/1754/catalog_origin_141546.jpg',
+// 	name: 'Молоток',
+// 	price: 150
+// },
+// 	{
+// 		id: 4,
+// 		img: 'https://static.dnipro-m.ua/cache/products/1754/catalog_origin_141546.jpg',
+// 		name: 'Молоток',
+// 		price: 175
+// 	},{
+// 		id: 2,
+// 		img: 'https://static.dnipro-m.ua/cache/products/5098/catalog_origin_195568.jpg',
+// 		name: 'Перфоратор',
+// 		price: 3000
+// 	}, {
+// 		id: 3,
+// 		img: 'https://static.dnipro-m.ua/cache/products/2023/catalog_origin_200763.jpg',
+// 		name: 'Рівень',
+// 		price: 2000
+// 	}]
 
-const refs = {
-	basketBtn: document.querySelector('.basket-button'),
-	favouriteBtn: document.querySelector('.favourite-button'),
-	list: document.querySelector('.products'),
-	container: document.querySelector('.container')
-};
+// const refs = {
+// 	basketBtn: document.querySelector('.basket-button'),
+// 	favouriteBtn: document.querySelector('.favourite-button'),
+// 	list: document.querySelector('.products'),
+// 	container: document.querySelector('.container')
+// };
 
-const markup = instruments.reduce((acc, instrument ) => {
-	return acc + `<li data-id="${instrument .id}" class="item">
-    <img src="${instrument .img}" alt="${instrument .name}" width="200">
-    <h2 class="products__title">${instrument .name}</h2>
-    <p class="products__desc">${instrument .price}</p>
-    <button class="js-add">Basket</button><button class="js-favourite">Favourite</button>
-</li>`
-}, '');
+// const markup = instruments.reduce((acc, instrument ) => {
+// 	return acc + `<li data-id="${instrument .id}" class="item">
+//     <img src="${instrument .img}" alt="${instrument .name}" width="200">
+//     <h2 class="products__title">${instrument .name}</h2>
+//     <p class="products__desc">${instrument .price}</p>
+//     <button class="js-add">Basket</button><button class="js-favourite">Favourite</button>
+// </li>`
+// }, '');
 
-let basket = [];
-let favourite =[];
+// let basket = [];
+// let favourite =[];
 
-refs.list.insertAdjacentHTML('beforeend', markup);
+// refs.list.insertAdjacentHTML('beforeend', markup);
 
-refs.list.addEventListener('click', onClick)
+// refs.list.addEventListener('click', onClick)
 
-function onClick(event){
-	if(event.target.classList.contains('js-add')){
+// function onClick(event){
+// 	if(event.target.classList.contains('js-add')){
 
-		const currentCart = event.target.closest('.item')
-		const currentId = currentCart.dataset.id
+// 		const currentCart = event.target.closest('.item')
+// 		const currentId = currentCart.dataset.id
  
-		const obj = instruments.find((element) => element.id === Number(currentId));
-		const addedItem = basket.find((element) => element.id === Number(currentId));
+// 		const obj = instruments.find((element) => element.id === Number(currentId));
+// 		const addedItem = basket.find((element) => element.id === Number(currentId));
 
-		if(addedItem){
-			addedItem.qty += 1;
-			return;
-		}else{
-			const objOrder = {date: new Date(), qty: 1, ...obj}
-			basket.push(objOrder);
-			return;
-		}
-		console.log(basket);
-	}
-
-
-	if(event.target.classList.contains('js-favourite')){
-
-		const currentCart = event.target.closest('.item')
-		const currentId = currentCart.dataset.id
-
-		const obj = instruments.find((element) => element.id === Number(currentId));
-		const addedItem = basket.find((element) => element.id === Number(currentId));
-		if(!addedItem){
-			favourite.push(obj);
-			event.target.setAttribute('disabled', true)
-		}
-		console.log(favourite);
-	}
-};
+// 		if(addedItem){
+// 			addedItem.qty += 1;
+// 			return;
+// 		}else{
+// 			const objOrder = {date: new Date(), qty: 1, ...obj}
+// 			basket.push(objOrder);
+// 			return;
+// 		}
+// 		console.log(basket);
+// 	}
 
 
-refs.basketBtn.addEventListener('click', onBusketBtnClick);
+// 	if(event.target.classList.contains('js-favourite')){
 
-function onBusketBtnClick(event) {
-	createMarkupForBasket();
-}
+// 		const currentCart = event.target.closest('.item')
+// 		const currentId = currentCart.dataset.id
+
+// 		const obj = instruments.find((element) => element.id === Number(currentId));
+// 		const addedItem = basket.find((element) => element.id === Number(currentId));
+// 		if(!addedItem){
+// 			favourite.push(obj);
+// 			event.target.setAttribute('disabled', true)
+// 		}
+// 		console.log(favourite);
+// 	}
+// };
 
 
-refs.container.addEventListener('click', handlerRemoveProduct);
+// refs.basketBtn.addEventListener('click', onBusketBtnClick);
+
+// function onBusketBtnClick(event) {
+// 	createMarkupForBasket();
+// }
+
+
+// refs.container.addEventListener('click', handlerRemoveProduct);
 
  
-function handlerRemoveProduct(evt) {
- 	if (evt.target.classList.contains('js-remove')) {
- 		const itemSelect = evt.target.closest('.item').dataset.id;
+// function handlerRemoveProduct(evt) {
+//  	if (evt.target.classList.contains('js-remove')) {
+//  		const itemSelect = evt.target.closest('.item').dataset.id;
 
- 		const indexOfItem = basket.findIndex(elem => elem.id === Number(itemSelect));
-		 console.log(indexOfItem);
+//  		const indexOfItem = basket.findIndex(elem => elem.id === Number(itemSelect));
+// 		 console.log(indexOfItem);
 
-		basket.splice(indexOfItem, 1);
-		createMarkupForBasket();
-	}
-}
-
-
-function createMarkupForBasket() {
-  const basketMarkup = basket.reduce((acc, instrument) => {
-		return acc + `
-			<li data-id="${instrument.id}" class="item">
-			    <img src="${instrument.img}" alt="${instrument.name}" width="200">
-			    <h2 class="products__title">${instrument.name}</h2>
-			    <p class="products__desc">${instrument.price}</p>
-			    <p class="">${instrument.date.getDate()
-					}</p>
-			    <p class="">Кількість: ${instrument.qty}</p>
-			    <button class="js-remove">Remove</button>    
-		    </li>`
-
-	},'');
-	refs.container.innerHTML = basketMarkup;
+// 		basket.splice(indexOfItem, 1);
+// 		createMarkupForBasket();
+// 	}
+// }
 
 
-}
+// function createMarkupForBasket() {
+//   const basketMarkup = basket.reduce((acc, instrument) => {
+// 		return acc + `
+// 			<li data-id="${instrument.id}" class="item">
+// 			    <img src="${instrument.img}" alt="${instrument.name}" width="200">
+// 			    <h2 class="products__title">${instrument.name}</h2>
+// 			    <p class="products__desc">${instrument.price}</p>
+// 			    <p class="">${instrument.date.getDate()
+// 					}</p>
+// 			    <p class="">Кількість: ${instrument.qty}</p>
+// 			    <button class="js-remove">Remove</button>    
+// 		    </li>`
+
+// 	},'');
+// 	refs.container.innerHTML = basketMarkup;
+
+
+// }
 
 
 
