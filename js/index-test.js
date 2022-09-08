@@ -801,6 +801,8 @@
 
 // console.log(selectedOptionValue );
 
+// ______________________________________________________________________________
+
 // const instruments = [{
 // 	id: 1,
 // 	img: 'https://static.dnipro-m.ua/cache/products/1754/catalog_origin_141546.jpg',
@@ -928,6 +930,133 @@
 
 
 
+// локальне сховище________________________________________________
+
+
+ // Створює новий запис у сховищі у вигляді рядка
+// localStorage.setItem('my-data', JSON.stringify({name: 'Mango', age: 2}));
+
+// // повертає значення зі сховища
+// const saveData = localStorage.getItem('my-data');
+// const parsedData = JSON.parse(saveData);
+// console.log(parsedData); 
+// import { refs } from "./scripts/refs";
+
+
+
+// // функція створення лішки
+// const createLi = (text) => `<li data-id='${text}'>${text}</li>`;
+    
+// // вставка розмітки на екран
+//   const addLiToList = (markdown) => {
+//     refs.list.insertAdjacentHTML('beforeend', markdown);
+// }
+  
+// const handlerSubmit = (e) => {
+//     // забороняєм перезавантажувати сторінку
+//   e.preventDefault();            
+//   //   дістаємо значення інпуту
+//   const value = refs.input.value; 
+//    //   value запишеться в text  і передасться в лішку 
+//   const liItem = createLi(value);  
+//    //   лішка вставиться в ул  
+//   addLiToList(liItem);             
+//   //   отримали доступ до сторедж
+//   const list = localStorage.getItem('list');
+//   try { // якщо клас ліст є то парсимо ліст якщо ні то створєм новий []
+//     const listData = list ? JSON.parse(list) : [];
+//   //   пушимо значення в ул
+//     listData.push(value);
+//     // перетворюємо в JSON
+//     const updatedList = JSON.stringify(listData);
+//     // записуємо новий json в сторедж
+//     localStorage.setItem('list', updatedList);  
+//   }catch (error) {
+//     console.log('parsing error');
+//   }
+//   refs.input.value.reset;  
+// }
+
+// refs.form.addEventListener('submit', handlerSubmit);
+
+// // згенерувати дані з локал сторедж на екран при завантаженні сторінки
+// const handleMount = () => {
+//     const list = localStorage.getItem('list');
+//  try {
+//     const savedList = JSON.parse(list);
+//     const markdown = savedList.reduce((acc, text) => acc +  createLi(text), ""); 
+//     addLiToList(markdown);
+//  } catch (error) {
+//     console.log('parsing error');
+//  }
+// }
+// // запусти фун ю для завантаження сторінки
+// addEventListener('DOMContentLoaded', handleMount);
+
+
+
+
+
+// setTimeout  ________________________________
+
+// Оповіщення__________________________
+    
+const NOTIFICATION_DELAY = 3000;
+let timeoutId = null;
+
+const refs = {
+    notification: document.querySelector('.js-alert'),
+};
+
+refs.notification.addEventListener('click, onNotificationClick');
+
+// при завантаженні сторінки показується оповіщення
+showNotification();
+
+
+
+// при кліку на оповіщення очищаємо сет таймаут і ховаємо оповіщення__________
+function onNotificationClick() {
+    hideNotification();
+    clearTimeout(timeoutId);
+}
+
+
+// функція показу оповіщення__________
+function showNotification() {
+    refs.notification.classList.add('is-visible');
+
+    timeoutId = setTimeout(() => {
+       console.log('треба закрити алерт');
+       hideNotification();
+    }, NOTIFICATION_DELAY);
+
+}
+
+// функція схову оповіщення___________
+function hideNotification() {
+    refs.notification.classList.remove('is-visible');
+}
+
+
+
+// setInterval______________________________________
+// Модальне вікно з проханням підписатись_______________
+
+const PROMPT_DELAY = 1000;
+const MAX_PROMPT_ATTEMPTS = 3;
+
+//  скільки разів ми попросили підписатись
+let promptCounter = 0;
+let hasSubscribed = false;
+
+setInterval(() => {
+    if(promptCounter === MAX_PROMPT_ATTEMPTS) {
+        console.log('зупиняєм інтервал');
+    }
+  console.log('підпишись на розсилку');
+  promptCounter += 1;
+}, PROMPT_DELAY);
 
 
 
