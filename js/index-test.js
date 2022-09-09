@@ -1015,14 +1015,14 @@ showNotification();
 
 
 
-// при кліку на оповіщення очищаємо сет таймаут і ховаємо оповіщення__________
+// при кліку на оповіщення очищаємо сет таймаут і ховаємо оповіщення
 function onNotificationClick() {
     hideNotification();
     clearTimeout(timeoutId);
 }
 
 
-// функція показу оповіщення__________
+// функція показу оповіщення
 function showNotification() {
     refs.notification.classList.add('is-visible');
 
@@ -1033,7 +1033,7 @@ function showNotification() {
 
 }
 
-// функція схову оповіщення___________
+// функція схову оповіщення 
 function hideNotification() {
     refs.notification.classList.remove('is-visible');
 }
