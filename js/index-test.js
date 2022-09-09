@@ -803,256 +803,256 @@
 
 // ______________________________________________________________________________
 
-const instruments = [{
-	id: 1,
-	img: 'https://static.dnipro-m.ua/cache/products/1754/catalog_origin_141546.jpg',
-	name: 'Молоток',
-	price: 150
-},
-	{
-		id: 4,
-		img: 'https://static.dnipro-m.ua/cache/products/1754/catalog_origin_141546.jpg',
-		name: 'Молоток',
-		price: 175
-	},{
-		id: 2,
-		img: 'https://static.dnipro-m.ua/cache/products/5098/catalog_origin_195568.jpg',
-		name: 'Перфоратор',
-		price: 3000
-	}, {
-		id: 3,
-		img: 'https://static.dnipro-m.ua/cache/products/2023/catalog_origin_200763.jpg',
-		name: 'Рівень',
-		price: 2000
-	}]
+// const instruments = [{
+// 	id: 1,
+// 	img: 'https://static.dnipro-m.ua/cache/products/1754/catalog_origin_141546.jpg',
+// 	name: 'Молоток',
+// 	price: 150
+// },
+// 	{
+// 		id: 4,
+// 		img: 'https://static.dnipro-m.ua/cache/products/1754/catalog_origin_141546.jpg',
+// 		name: 'Молоток',
+// 		price: 175
+// 	},{
+// 		id: 2,
+// 		img: 'https://static.dnipro-m.ua/cache/products/5098/catalog_origin_195568.jpg',
+// 		name: 'Перфоратор',
+// 		price: 3000
+// 	}, {
+// 		id: 3,
+// 		img: 'https://static.dnipro-m.ua/cache/products/2023/catalog_origin_200763.jpg',
+// 		name: 'Рівень',
+// 		price: 2000
+// 	}]
 
-const refs = {
-	basketBtn: document.querySelector('.basket-button'),
-	favouriteBtn: document.querySelector('.favourite-button'),
-	list: document.querySelector('.products'),
-	container: document.querySelector('.container')
-};
+// const refs = {
+// 	basketBtn: document.querySelector('.basket-button'),
+// 	favouriteBtn: document.querySelector('.favourite-button'),
+// 	list: document.querySelector('.products'),
+// 	container: document.querySelector('.container')
+// };
 
-const markup = instruments.reduce((acc, instrument ) => {
-	return acc + `<li data-id="${instrument .id}" class="item">
-    <img src="${instrument .img}" alt="${instrument .name}" width="200">
-    <h2 class="products__title">${instrument .name}</h2>
-    <p class="products__desc">${instrument .price}</p>
-    <button class="js-add">Basket</button><button class="js-favourite">Favourite</button>
-</li>`
-}, '');
+// const markup = instruments.reduce((acc, instrument ) => {
+// 	return acc + `<li data-id="${instrument .id}" class="item">
+//     <img src="${instrument .img}" alt="${instrument .name}" width="200">
+//     <h2 class="products__title">${instrument .name}</h2>
+//     <p class="products__desc">${instrument .price}</p>
+//     <button class="js-add">Basket</button><button class="js-favourite">Favourite</button>
+// </li>`
+// }, '');
 
-let basket = [];
-let favourite =[];
+// let basket = [];
+// let favourite =[];
 
-refs.list.insertAdjacentHTML('beforeend', markup);
+// refs.list.insertAdjacentHTML('beforeend', markup);
 
-refs.list.addEventListener('click', onClick)
+// refs.list.addEventListener('click', onClick)
 
-function onClick(event){
-	if(event.target.classList.contains('js-add')){
+// function onClick(event){
+// 	if(event.target.classList.contains('js-add')){
 
-		const currentCart = event.target.closest('.item')
-		const currentId = currentCart.dataset.id
+// 		const currentCart = event.target.closest('.item')
+// 		const currentId = currentCart.dataset.id
  
-		const obj = instruments.find((element) => element.id === Number(currentId));
-		const addedItem = basket.find((element) => element.id === Number(currentId));
+// 		const obj = instruments.find((element) => element.id === Number(currentId));
+// 		const addedItem = basket.find((element) => element.id === Number(currentId));
 
-		if(addedItem){
-			addedItem.qty += 1;
-			return;
-		}else{
-			const objOrder = {date: new Date(), qty: 1, ...obj}
-			basket.push(objOrder);
-			return;
-		}
-		console.log(basket);
-	}
-
-
-	if(event.target.classList.contains('js-favourite')){
-
-		const currentCart = event.target.closest('.item')
-		const currentId = currentCart.dataset.id
-
-		const obj = instruments.find((element) => element.id === Number(currentId));
-		const addedItem = basket.find((element) => element.id === Number(currentId));
-		if(!addedItem){
-			favourite.push(obj);
-			event.target.setAttribute('disabled', true)
-		}
-		console.log(favourite);
-	}
-};
-
-refs.basketBtn.addEventListener('click', onBusketBtnClick);
-
-function onBusketBtnClick(event) {
-	createMarkupForBasket();
-}
-
-refs.container.addEventListener('click', handlerRemoveProduct);
-
-function handlerRemoveProduct(evt) {
- 	if (evt.target.classList.contains('js-remove')) {
- 		const itemSelect = evt.target.closest('.item').dataset.id;
-
- 		const indexOfItem = basket.findIndex(elem => elem.id === Number(itemSelect));
-		 console.log(indexOfItem);
-
-		basket.splice(indexOfItem, 1);
-		createMarkupForBasket();
-	}
-}
-
-function createMarkupForBasket() {
-  const basketMarkup = basket.reduce((acc, instrument) => {
-		return acc + `
-			<li data-id="${instrument.id}" class="item">
-			    <img src="${instrument.img}" alt="${instrument.name}" width="200">
-			    <h2 class="products__title">${instrument.name}</h2>
-			    <p class="products__desc">${instrument.price}</p>
-			    <p class="">${instrument.date.getDate()
-					}</p>
-			    <p class="">Кількість: ${instrument.qty}</p>
-			    <button class="js-remove">Remove</button>    
-		    </li>`
-
-	},'');
-	refs.container.innerHTML = basketMarkup;
+// 		if(addedItem){
+// 			addedItem.qty += 1;
+// 			return;
+// 		}else{
+// 			const objOrder = {date: new Date(), qty: 1, ...obj}
+// 			basket.push(objOrder);
+// 			return;
+// 		}
+// 		console.log(basket);
+// 	}
 
 
-}
+// 	if(event.target.classList.contains('js-favourite')){
+
+// 		const currentCart = event.target.closest('.item')
+// 		const currentId = currentCart.dataset.id
+
+// 		const obj = instruments.find((element) => element.id === Number(currentId));
+// 		const addedItem = basket.find((element) => element.id === Number(currentId));
+// 		if(!addedItem){
+// 			favourite.push(obj);
+// 			event.target.setAttribute('disabled', true)
+// 		}
+// 		console.log(favourite);
+// 	}
+// };
+
+// refs.basketBtn.addEventListener('click', onBusketBtnClick);
+
+// function onBusketBtnClick(event) {
+// 	createMarkupForBasket();
+// }
+
+// refs.container.addEventListener('click', handlerRemoveProduct);
+
+// function handlerRemoveProduct(evt) {
+//  	if (evt.target.classList.contains('js-remove')) {
+//  		const itemSelect = evt.target.closest('.item').dataset.id;
+
+//  		const indexOfItem = basket.findIndex(elem => elem.id === Number(itemSelect));
+// 		 console.log(indexOfItem);
+
+// 		basket.splice(indexOfItem, 1);
+// 		createMarkupForBasket();
+// 	}
+// }
+
+// function createMarkupForBasket() {
+//   const basketMarkup = basket.reduce((acc, instrument) => {
+// 		return acc + `
+// 			<li data-id="${instrument.id}" class="item">
+// 			    <img src="${instrument.img}" alt="${instrument.name}" width="200">
+// 			    <h2 class="products__title">${instrument.name}</h2>
+// 			    <p class="products__desc">${instrument.price}</p>
+// 			    <p class="">${instrument.date.getDate()
+// 					}</p>
+// 			    <p class="">Кількість: ${instrument.qty}</p>
+// 			    <button class="js-remove">Remove</button>    
+// 		    </li>`
+
+// 	},'');
+// 	refs.container.innerHTML = basketMarkup;
+
+
+// }
 
 
 
-локальне сховище________________________________________________
+// локальне сховище________________________________________________
 
 
-Створює новий запис у сховищі у вигляді рядка
-localStorage.setItem('my-data', JSON.stringify({name: 'Mango', age: 2}));
+// Створює новий запис у сховищі у вигляді рядка
+// localStorage.setItem('my-data', JSON.stringify({name: 'Mango', age: 2}));
 
-// повертає значення зі сховища
-const saveData = localStorage.getItem('my-data');
-const parsedData = JSON.parse(saveData);
-console.log(parsedData); 
-import { refs } from "./scripts/refs";
+// // повертає значення зі сховища
+// const saveData = localStorage.getItem('my-data');
+// const parsedData = JSON.parse(saveData);
+// console.log(parsedData); 
+// import { refs } from "./scripts/refs";
 
-// функція створення лішки
-const createLi = (text) => `<li data-id='${text}'>${text}</li>`;
+// // функція створення лішки
+// const createLi = (text) => `<li data-id='${text}'>${text}</li>`;
     
-// вставка розмітки на екран
-  const addLiToList = (markdown) => {
-    refs.list.insertAdjacentHTML('beforeend', markdown);
-}
+// // вставка розмітки на екран
+//   const addLiToList = (markdown) => {
+//     refs.list.insertAdjacentHTML('beforeend', markdown);
+// }
   
-const handlerSubmit = (e) => {
-    // забороняєм перезавантажувати сторінку
-  e.preventDefault();            
-  //   дістаємо значення інпуту
-  const value = refs.input.value; 
-   //   value запишеться в text  і передасться в лішку 
-  const liItem = createLi(value);  
-   //   лішка вставиться в ул  
-  addLiToList(liItem);             
-  //   отримали доступ до сторедж
-  const list = localStorage.getItem('list');
-  try { // якщо клас ліст є то парсимо ліст якщо ні то створєм новий []
-    const listData = list ? JSON.parse(list) : [];
-  //   пушимо значення в ул
-    listData.push(value);
-    // перетворюємо в JSON
-    const updatedList = JSON.stringify(listData);
-    // записуємо новий json в сторедж
-    localStorage.setItem('list', updatedList);  
-  }catch (error) {
-    console.log('parsing error');
-  }
-  refs.input.value.reset;  
-}
+// const handlerSubmit = (e) => {
+//     // забороняєм перезавантажувати сторінку
+//   e.preventDefault();            
+//   //   дістаємо значення інпуту
+//   const value = refs.input.value; 
+//    //   value запишеться в text  і передасться в лішку 
+//   const liItem = createLi(value);  
+//    //   лішка вставиться в ул  
+//   addLiToList(liItem);             
+//   //   отримали доступ до сторедж
+//   const list = localStorage.getItem('list');
+//   try { // якщо клас ліст є то парсимо ліст якщо ні то створєм новий []
+//     const listData = list ? JSON.parse(list) : [];
+//   //   пушимо значення в ул
+//     listData.push(value);
+//     // перетворюємо в JSON
+//     const updatedList = JSON.stringify(listData);
+//     // записуємо новий json в сторедж
+//     localStorage.setItem('list', updatedList);  
+//   }catch (error) {
+//     console.log('parsing error');
+//   }
+//   refs.input.value.reset;  
+// }
 
-refs.form.addEventListener('submit', handlerSubmit);
+// refs.form.addEventListener('submit', handlerSubmit);
 
-// згенерувати дані з локал сторедж на екран при завантаженні сторінки
-const handleMount = () => {
-    const list = localStorage.getItem('list');
- try {
-    const savedList = JSON.parse(list);
-    const markdown = savedList.reduce((acc, text) => acc +  createLi(text), ""); 
-    addLiToList(markdown);
- } catch (error) {
-    console.log('parsing error');
- }
-}
-// запусти фун ю для завантаження сторінки
-addEventListener('DOMContentLoaded', handleMount);
-
-
+// // згенерувати дані з локал сторедж на екран при завантаженні сторінки
+// const handleMount = () => {
+//     const list = localStorage.getItem('list');
+//  try {
+//     const savedList = JSON.parse(list);
+//     const markdown = savedList.reduce((acc, text) => acc +  createLi(text), ""); 
+//     addLiToList(markdown);
+//  } catch (error) {
+//     console.log('parsing error');
+//  }
+// }
+// // запусти фун ю для завантаження сторінки
+// addEventListener('DOMContentLoaded', handleMount);
 
 
 
-// setTimeout  ________________________________
 
-// Оповіщення__________________________
+
+// // setTimeout  ________________________________
+
+// // Оповіщення__________________________
     
-const NOTIFICATION_DELAY = 3000;
-let timeoutId = null;
+// const NOTIFICATION_DELAY = 3000;
+// let timeoutId = null;
 
-const refs = {
-    notification: document.querySelector('.js-alert'),
-};
+// const refs = {
+//     notification: document.querySelector('.js-alert'),
+// };
 
-refs.notification.addEventListener('click, onNotificationClick');
+// refs.notification.addEventListener('click, onNotificationClick');
 
-// при завантаженні сторінки показується оповіщення
-showNotification();
-
-
-
-// при кліку на оповіщення очищаємо сет таймаут і ховаємо оповіщення
-function onNotificationClick() {
-    hideNotification();
-    clearTimeout(timeoutId);
-}
-
-
-// функція показу оповіщення
-function showNotification() {
-    refs.notification.classList.add('is-visible');
-
-    timeoutId = setTimeout(() => {
-       console.log('треба закрити алерт');
-       hideNotification();
-    }, NOTIFICATION_DELAY);
-
-}
-
-// функція схову оповіщення 
-function hideNotification() {
-    refs.notification.classList.remove('is-visible');
-}
+// // при завантаженні сторінки показується оповіщення
+// showNotification();
 
 
 
-// setInterval______________________________________
-// Модальне вікно з проханням підписатись_______________
+// // при кліку на оповіщення очищаємо сет таймаут і ховаємо оповіщення
+// function onNotificationClick() {
+//     hideNotification();
+//     clearTimeout(timeoutId);
+// }
 
-const PROMPT_DELAY = 1000;
-const MAX_PROMPT_ATTEMPTS = 3;
 
-//  скільки разів ми попросили підписатись
-let promptCounter = 0;
-let hasSubscribed = false;
+// // функція показу оповіщення
+// function showNotification() {
+//     refs.notification.classList.add('is-visible');
 
-const intervalId = setInterval(() => {
-    if(promptCounter === MAX_PROMPT_ATTEMPTS) {
-        console.log('зупиняєм інтервал');
-        clearInterval(intervalId);
-        return;
-    }
-  console.log('підпишись на розсилку');
-  promptCounter += 1;
-}, PROMPT_DELAY);
+//     timeoutId = setTimeout(() => {
+//        console.log('треба закрити алерт');
+//        hideNotification();
+//     }, NOTIFICATION_DELAY);
+
+// }
+
+// // функція схову оповіщення 
+// function hideNotification() {
+//     refs.notification.classList.remove('is-visible');
+// }
+
+
+
+// // setInterval______________________________________
+// // Модальне вікно з проханням підписатись_______________
+
+// const PROMPT_DELAY = 1000;
+// const MAX_PROMPT_ATTEMPTS = 3;
+
+// //  скільки разів ми попросили підписатись
+// let promptCounter = 0;
+// let hasSubscribed = false;
+
+// const intervalId = setInterval(() => {
+//     if(promptCounter === MAX_PROMPT_ATTEMPTS) {
+//         console.log('зупиняєм інтервал');
+//         clearInterval(intervalId);
+//         return;
+//     }
+//   console.log('підпишись на розсилку');
+//   promptCounter += 1;
+// }, PROMPT_DELAY);
 
 
 
