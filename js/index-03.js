@@ -108,7 +108,6 @@
 //   apartment.owner.name = "Henry Sibola";
 //   apartment.tags.push("trusted");
   
-  
 
 
 // 7/41
@@ -130,11 +129,6 @@
 // apartment.rooms = 3;
 // apartment.location = {country: "Jamaica", city : "Kingston"};
   
-
-
-
-
-
 
 // 8/41
 
