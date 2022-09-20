@@ -924,183 +924,149 @@
 
 // }
 
-// локальне сховище_______________________________________________
+
+
+// локальне сховище________________________________________________
+
+
+// Створює новий запис у сховищі у вигляді рядка
+// localStorage.setItem('my-data', JSON.stringify({name: 'Mango', age: 2}));
+
+// // повертає значення зі сховища
+// const saveData = localStorage.getItem('my-data');
+// const parsedData = JSON.parse(saveData);
+// console.log(parsedData); 
+// import { refs } from "./scripts/refs";
+
+// // функція створення лішки
+// const createLi = (text) => `<li data-id='${text}'>${text}</li>`;
+    
+// // вставка розмітки на екран
+//   const addLiToList = (markdown) => {
+//     refs.list.insertAdjacentHTML('beforeend', markdown);
+// }
+  
+// const handlerSubmit = (e) => {
+//     // забороняєм перезавантажувати сторінку
+//   e.preventDefault();            
+//   //   дістаємо значення інпуту
+//   const value = refs.input.value; 
+//    //   value запишеться в text  і передасться в лішку 
+//   const liItem = createLi(value);  
+//    //   лішка вставиться в ул  
+//   addLiToList(liItem);             
+//   //   отримали доступ до сторедж
+//   const list = localStorage.getItem('list');
+//   try { // якщо клас ліст є то парсимо ліст якщо ні то створєм новий []
+//     const listData = list ? JSON.parse(list) : [];
+//   //   пушимо значення в ул
+//     listData.push(value);
+//     // перетворюємо в JSON
+//     const updatedList = JSON.stringify(listData);
+//     // записуємо новий json в сторедж
+//     localStorage.setItem('list', updatedList);  
+//   }catch (error) {
+//     console.log('parsing error');
+//   }
+//   refs.input.value.reset;  
+// }
+
+// refs.form.addEventListener('submit', handlerSubmit);
+
+// // згенерувати дані з локал сторедж на екран при завантаженні сторінки
+// const handleMount = () => {
+//     const list = localStorage.getItem('list');
+//  try {
+//     const savedList = JSON.parse(list);
+//     const markdown = savedList.reduce((acc, text) => acc +  createLi(text), ""); 
+//     addLiToList(markdown);
+//  } catch (error) {
+//     console.log('parsing error');
+//  }
+// }
+// // запусти фун ю для завантаження сторінки
+// addEventListener('DOMContentLoaded', handleMount);
 
 
 
 
-// const instruments = [{
-//     id: 1,
-//     img: 'https://static.dnipro-m.ua/cache/products/1754/catalog_origin_141546.jpg',
-//     name: 'Молоток',
-//     price: 150
-// }, {
-//     id: 2,
-//     img: 'https://static.dnipro-m.ua/cache/products/5098/catalog_origin_195568.jpg',
-//     name: 'Перфоратор',
-//     price: 3000
-// }, {
-//     id: 3,
-//     img: 'https://static.dnipro-m.ua/cache/products/2023/catalog_origin_200763.jpg',
-//     name: 'Рівень',
-//     price: 2000
-// }]
-// console.log({
-//     name: 'NAME',
-//     price: "PRICE"
-// });
 
+// // setTimeout  ________________________________
+
+// // Оповіщення__________________________
+    
+// const NOTIFICATION_DELAY = 3000;
+// let timeoutId = null;
 
 // const refs = {
-//     	basketBtn: document.querySelector('.basket-button'),
-//     	favouriteBtn: document.querySelector('.favourite-button'),
-//     	list: document.querySelector('.products'),
-//     	container: document.querySelector('.container')
+//     notification: document.querySelector('.js-alert'),
 // };
-    
-// const markup = instruments.reduce((acc, instrument ) => {
-//     	return acc + `<li data-id="${instrument .id}" class="item">
-//         <img src="${instrument .img}" alt="${instrument .name}" width="200">
-//         <h2 class="products__title">${instrument .name}</h2>
-//         <p class="products__desc">${instrument .price}</p>
-//         <button class="js-add">Basket</button><button class="js-favourite">Favourite</button>
-//     </li>`
-//     }, '');
 
-// const BASKET_KEY = 'basket';
-// const FAVORITE_KEY = 'favorite';
+// refs.notification.addEventListener('click, onNotificationClick');
 
-// let basket = JSON.parse(localStorage.getItem(BASKET_KEY)) ?? [];
-// let favorite = JSON.parse(localStorage.getItem(FAVORITE_KEY)) ?? [];
-
-    
+// // при завантаженні сторінки показується оповіщення
+// showNotification();
 
 
-// refs.list.insertAdjacentHTML('beforeend', markup);
 
-// refs.list.addEventListener('click', onClick);
-
-// function onClick(e) {
-
-//   if(e.target.classList.contains('js-add')) {
-//     console.log(e.target);
-//     const curentProdactId = e.target.closest('li').dataset.id;
-//     console.log(curentProdactId);
-
-//     const obj = instruments.find((el) => el.id === Number(curentProdactId));
-//     console.log(obj);
-//     console.log(basket);
-
-//     basket.push(obj);
-//     localStorage.setItem(BASKET_KEY, JSON.stringify(basket));
-
-//   } 
-
-//   if(e.target.classList.contains('js-favourite')) {
-//     console.log(e.target);
-//     const curentProdactId = e.target.closest('li').dataset.id;
-//     console.log(curentProdactId);
-
-//     const obj = instruments.find((el) => el.id === Number(curentProdactId));
-//     console.log(obj);
-
-//     favorite.push(obj);
-//     localStorage.setItem(FAVORITE_KEY, JSON.stringify(favorite));
-//   } 
+// // при кліку на оповіщення очищаємо сет таймаут і ховаємо оповіщення
+// function onNotificationClick() {
+//     hideNotification();
+//     clearTimeout(timeoutId);
 // }
 
-// refs.basketBtn.addEventListener('click', onClickBasket);
 
-// function onClickBasket(e) {
-//    if(!basket.length) {
-//      refs.container.innerHTML = `<li><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdxdGLlzbEYut8PuInk6XpQqEkFqzrCD4_keNaNTzNqMu5-dDtkPtAjQTGP96qp4cwyGY&usqp=CAU
-//      " alt=""></li>`;
-//    }else{
-//       refs.container.innerHTML = basket.map(({name}) => `<li><h2>${name}</h2></li>
-//       `)
-//    }
+// // функція показу оповіщення
+// function showNotification() {
+//     refs.notification.classList.add('is-visible');
+
+//     timeoutId = setTimeout(() => {
+//        console.log('треба закрити алерт');
+//        hideNotification();
+//     }, NOTIFICATION_DELAY);
+
+// }
+
+// // функція схову оповіщення 
+// function hideNotification() {
+//     refs.notification.classList.remove('is-visible');
 // }
 
 
 
+// // setInterval______________________________________
+// // Модальне вікно з проханням підписатись_______________
+
+// const PROMPT_DELAY = 1000;
+// const MAX_PROMPT_ATTEMPTS = 3;
+
+// //  скільки разів ми попросили підписатись
+// let promptCounter = 0;
+// let hasSubscribed = false;
+
+// const intervalId = setInterval(() => {
+//     if(promptCounter === MAX_PROMPT_ATTEMPTS) {
+//         console.log('зупиняєм інтервал');
+//         clearInterval(intervalId);
+//         return;
+//     }
+//   console.log('підпишись на розсилку');
+//   promptCounter += 1;
+// }, PROMPT_DELAY);
 
 
-// годинник________________________________________
-// const refs = {
-//     dayWeek: document.querySelector(".date-day"),
-//     dayMonth: document.querySelector(".date"),
-//     month: document.querySelector(".date-month"),
-//     year: document.querySelector(".date-year"),
-//     time: document.querySelector(".digital-clock"),
-//     arrowSeconds: document.querySelector(".clock-seconds__arrow"),
-//     arrowMinutes: document.querySelector(".clock-minutes__arrow"),
-//     arrowHours: document.querySelector(".clock-hours__arrow"),
-// };
-// const namesOfDay = [
-//     "Неділя",
-//     "Понеділок",
-//     "Вівторок",
-//     "Середа",
-//     "Четвер",
-//     "Пятниця",
-//     "Субота",
-// ];
-// const namesOfMonth = [
-//     "Січень",
-//     "Лютий",
-//     "Березень",
-//     "Квітень",
-//     "Травень",
-//     "Червень",
-//     "Липень",
-//     "Серпень",
-//     "Вересень",
-//     "Жовтень",
-//     "Листопад",
-//     "Грудень",
-// ];
-  
-// (() => {
-//     const intervalId = setInterval(updateInterface, 1000);
-// })();
-  
-
-// function updateInterface() {
-//     const date = new Date();
-  
-//     updateDate(date);
-//     updateClocks(date);
-// }
-  
-// function addLeadingZero(number) {
-//     return String(number).padStart(2, "0");
-// }
-  
-// function updateDate(date) {
-//     refs.dayWeek.textContent = namesOfDay[date.getDay()];
-//     refs.dayMonth.textContent = date.getDate();
-//     refs.month.textContent = namesOfMonth[date.getMonth()];
-//     refs.year.textContent = date.getFullYear();
-  
-//     refs.time.textContent = `${addLeadingZero(date.getHours())} год.,
-//      ${addLeadingZero(date.getMinutes())} хв.,
-//      ${addLeadingZero(date.getSeconds())} сек.`;
-// }
-  
 
 
-// function updateClocks(date) {
-//     refs.arrowSeconds.style.transform = `rotate(${
-//       (date.getSeconds() * 360) / 60
-//     }deg)`;
-//     refs.arrowMinutes.style.transform = `rotate(${
-//       (date.getMinutes() * 360) / 60
-//     }deg)`;
-//     refs.arrowHours.style.transform = `rotate(${
-//       (date.getHours() * 360) / (24 / 2) + date.getMinutes() * 0.33
-//     }deg)`;
-// }
-  
+
+
+
+
+
+
+
+
+
+
 
 
 
