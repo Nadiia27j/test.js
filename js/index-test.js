@@ -1056,6 +1056,21 @@
 
 
 
+// модуль 10  HTTP HTTPS ЗАПИТИ
+
+
+fetch('https://pokeapi.co/api/v2/pokemon/2')
+.then(response => {
+    return response.json();
+})
+.then(pokem => {
+    console.log(pokem);
+})
+.catch(error => {
+    console.log(error);
+});
+
+
 
 
 
