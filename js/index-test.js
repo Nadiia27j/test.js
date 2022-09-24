@@ -1059,36 +1059,206 @@
 // модуль 10  HTTP HTTPS ЗАПИТИ
 
 
-fetch('https://pokeapi.co/api/v2/pokemon/2')
-.then(response => {
-    return response.json();
-})
-.then(pokem => {
-    console.log(pokem);
-})
-.catch(error => {
-    console.log(error);
-});
+// fetch('https://pokeapi.co/api/v2/pokemon/2')
+// .then(response => {
+//     return response.json();
+// })
+// .then(pokem => {
+//     console.log(pokem);
+// })
+// .catch(error => {
+//     console.log(error);
+// });
+
+
+// function fetchCountries(nameCountry) {
+//     return fetch(`https://restcountries.com/v3.1/name/${nameCountry}`)
+//      .then(response => {
+//        if (response.status !== 200) {
+//            throw new Error(response.status);;
+//        } 
+//        return response.json();
+//      });
+     
+//    }
+
+//    import './css/styles.css';
+// import { fetchCountries } from './fetchCountries';
+// import { Notify } from 'notiflix/build/notiflix-notify-aio';
+// import debounce from 'lodash.debounce';
+
+// const refs = {
+//     inputEl: document.querySelector('#search-box'),
+//     countryList: document.querySelector('.country-list'),
+//     countryInfo: document.querySelector('.country-info'),
+// };
+
+// const DEBOUNCE_DELAY = 300;
+
+// refs.inputEl.addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY));
+
+// function onSearch(e) {
+//     e.preventDefault();
+//   const nameCountry = refs.inputEl.value.trim();
+//   if (!nameCountry  ) {
+//     refs.countryList.innerHTML = '';    refs.countryInfo.innerHTML = '';
+//     return;  
+//     }
+
+//   console.log(nameCountry);
+
+//     fetchCountries(nameCountry)
+//     .then(onCountry)
+//     .catch(onError) 
+// }
+
+// function onCountry(countries) {
+    
+//     refs.countryList.innerHTML = '';
+//     refs.countryInfo.innerHTML = '';
+//     if (countries.length > 10) {
+//         Notify.info('Too many matches found. Please enter a more specific name.');
+//     }
+
+//     if (countries.length > 2 && countries.length < 10) {
+//         const list = countries.map(({flags, name}) => {
+//             return `<li class="country-list__item"><img src="${flags.svg}" alt="" width="50" height="50"><h2 class="country-list__title">${name.official}</h2></li>`
+//         }).join('');
+//        refs.countryList.innerHTML = list;
+//     }
+
+//     if (countries.length === 1) {
+//       const markup = countries.map(({ flags, name, capital, population, languages}) => {
+//           return `<div>
+//             <img  src="${flags.svg}" alt="${name.official}" width="70" height="50">
+//             <h2>${name.official}</h2>
+//             <p>Capital: ${capital}</p>
+//             <p>Population: ${population}</p>
+//             <p>Languages: ${Object.values(languages)}</p>
+//             </div>`
+//       }).join('');
+//       refs.countryInfo.innerHTML = markup;  
+//    }
+  
+// }
+    
+
+// function onError() { 
+//     Notify.failure('Oops, there is no country with that name.'); 
+// }
 
 
 
 
+// ------------------------
+
+// const technologies = ["HTML", "CSS", "JavaScript", "React", "Node"];
+// const list = document.querySelector(".list");
+
+// const markup = technologies
+//   .map((technology) => `<li class="list-item">${technology}</li>`)
+//   .join("");
+
+// // Check the console, you'll see a single string with HTML tags
+// console.log(markup);
+
+// // Adding all the markup in one operation
+// list.innerHTML = markup;
+
+// -------------------------
 
 
 
+// Реалізуйте функціонал отримання даних з API по кліку на кнопку "BUTTON" і виведення їх
+// на сторінку при кожному кліку по кнопці. Кожен факт має мати свій порядковий номер.
+
+// https://catfact.ninja/
+
+// const btn = document.querySelector('.btn');
+// const list = document.querySelector('.list');
+
+// let number = 0;
 
 
+// btn.addEventListener('click', onBtnClick);
+
+// async function onBtnClick() {
+//     const fact = await fetch("https://catfact.ninja/fact").then(response => response.json());
+//     makePargrarh(fact.fact)
+// };
 
 
+// function makePargrarh(text) {
+//     console.log(text);
+//     list.insertAdjacentHTML('beforeend',
+//         `<li>${number += 1} ${text}</li>`
+//     )
+// }
+
+// ------------------------------------------------
 
 
+// ----------------------------
+
+// // Реалізуйте функціонал пошуку даних по юзеру з API при сабміті форми і виведення їх на сторінку
+// // https://agify.io/
 
 
+// const formEl = document.querySelector('.userForm');
+// const userList = document.querySelector('.userList');
+
+// formEl.addEventListener('submit', onFormSubmit);
+
+//  function onFormSubmit(e) {
+//     e.preventDefault();
+//     const userName = e.Target.elements.name.value;
+//     console.log(userName);
+//     fetchUser(userName);
+// }
 
 
+// async function  fetchUser(userName) {
+//   const userInf = await fetch(`https://agify.io/?name=${userName}`).then((res) => res.json());
+//   renderUserInfo(userInf);
+
+// }
+
+// function renderUserInfo({name, age}) {
+//     userList.insertAdjacentHTML('beforeend', `<li>name: ${name} age: ${age}</li>`);
+// }
 
 
+// ----------------------------------------
 
+
+// // Реалізуйте функціонал створення зображень при клікові на кнопку BUTTON
+// // https://dog.ceo/dog-api/
+
+// const btnEl = document.querySelector('.btn');
+// const bodyEl = document.querySelector('body');
+
+// btnEl.addEventListener('click', onBtnClick);
+
+// function onBtnClick(e) {
+//     e.preventDefault();
+
+//    fetch('https://dog.ceo/dog-api/breeds/image/random').then((res) => res.json()).then((data) => onRender(data.message));
+
+// }
+
+
+// function onRender(imageUrl) {
+//     const markup = `<div><img src="${imageUrl}"/><div>`
+//    bodyEl.insertAdjacentHTML('beforeend', markup);
+// }
+
+// ----------------------------------------------------------------
+
+// // Отримати дані з API і вивести їх на сторінку
+// // https://pokeapi.co/api/v2/pokemon
+// // 1. Вивести список покемонів (20шт) на сторінку
+// // 2. Створити розмітку картки покемона
+// // 3. При клікові по картці покемона - відкривати модалку з даними по покемону на якого ми клікнули
 
 
 
