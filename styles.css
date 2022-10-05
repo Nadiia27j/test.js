@@ -82,3 +82,11 @@ body {
     text-shadow: 3px 3px 2px #CECBCD;
   } */
   
+  .container {
+    color: #2196F3;
+    font-size: 20px;
+  }
+
+  .box {
+    display: flex;
+  }
