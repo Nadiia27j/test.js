@@ -1,4 +1,3 @@
-
 // масиви початок
 
 // const friends = ['Mango', 'Kiwi', 'Poly'];
@@ -8,23 +7,15 @@
 
 // console.table(friends);
 
-
-
-
 // const friends = ['Mango', 'Kiwi', 'Poly', 'Ajax'];
 
 // console.table(friends);
-
 
 // const clients = ["Mango", "Ajax", "Poly"];
 
 // for (let i = 0; i < clients.length; i += 1) {
 //   console.log(clients[i]);
 // }
-
-
-
-
 
 // ПЕРЕБІР(ІТЕРАЦІЯ)МАСИВУ
 
@@ -42,8 +33,6 @@
 //     console.log(friend);
 // }
 
-    
-
 // ЯКЩО ТРЕБА ПІДРАХУВАТИ ЗАГАЛЬНУ СУМУ ПОКУПОК В КОРЗИНІ
 // 1. Перебрати масив
 // 2. Зробити змінну total до циклу
@@ -52,19 +41,13 @@
 // const cart = [54, 28, 105, 70, 92, 17, 120];
 // let total = 0;
 
-// for (let i = 0; i < cart.length; i += 1) {   
+// for (let i = 0; i < cart.length; i += 1) {
 //     console.log(cart[i]);
 
 //     total += cart[i];
 // }
 
 // console.log('Total: ', total);
-
-
-
-
-
-
 
 // РЕпета:
 
@@ -86,7 +69,6 @@
 
 // 2 варіант
 
-
 // const numbers = [1, 5, 8, 9, 12, 4, 15, 27, 30, 18, 11];
 // let total = 0;
 
@@ -100,7 +82,6 @@
 // }
 
 // console.log('Total: ', total);
-
 
 // 3 variant
 
@@ -118,7 +99,6 @@
 // }
 
 // console.log('Total: ', total);
-
 
 // скрипт пошука логіна: for
 
@@ -139,7 +119,6 @@
 
 // console.log(message);
 
-
 // 2 варіант for of:
 
 // const logins = ['jfhhjgjh', 'uhgjgfjh', 'gghhggh', 'ggfgfg'];
@@ -159,7 +138,6 @@
 
 // console.log(message);
 
-
 // 3 варіант includes^
 
 // const logins = ['jfhhjgjh', 'uhgjgfjh', 'gghhggh', 'ggfgfg'];
@@ -169,23 +147,12 @@
 //  message = logins.includes(loginToFind) ? 'yes' : 'no' ;
 // console.log(message);
 
-
-
-
 // змінює регістр кожного символу на протилежний:
 
 // const string = 'JavaScript';
 // const letters = string.split('');
 
 // console.log(letters);
-
-
-
-
-
-
-
-
 
 // Примітивні типи
 
@@ -202,10 +169,7 @@
 // console.log(a);
 // console.log(b);
 
-
-
 // передача по посиланню
-
 
 // const a = [1, 2, 3];
 // const b = a;
@@ -218,13 +182,9 @@
 // console.log('a', a);
 // console.log('b', b);
 
-
 // console.log(a === b);
 
-
-
 // Додаткове заняття js:
-
 
 // 3.
 // потрібно  порахувати за скільки днів Равлик зможе виповзти з колодязя
@@ -232,7 +192,6 @@
 // 42 м, виповзе за 8 днів
 // 17 м, виповзе за 3 дні
 // 18 м, виповзе за 4 дні
-
 
 // const depth = 42;
 // const daySpeed = 7;
@@ -246,12 +205,10 @@
 
 //     if(totalPass < depth) {
 //         totalPass -= nightSpeed;
-//     }  
+//     }
 // }
 
 // console.log(days);
-
-
 
 // Створюємо функцію яка приймає 2 параметра:
 // 1. спільний мвсиі всіх користувачів
@@ -261,8 +218,6 @@
 // 1/створити новий масив
 // 2/ створити функціюю sortUser
 // 3. створюємо тіло функції
-
-
 
 // const all = [
 //     "Artem",
@@ -276,8 +231,6 @@
 // ];
 
 // const boys = ["Artem", "Maksim", "David",  "Roman"];
-
-
 
 // const sortUser = function (allName, boysName) {
 //     const sortUser = [];
@@ -293,14 +246,13 @@
 // }
 // console.log(sortUser(all, boys));
 
-
 // пробне
 
 // const numbers = [1, 2, 3, 4, 5];
 
 // const newNumbers = [];
 // // for (let i = 0; i < numbers.length; i += 1) {
-    
+
 // //     console.log(numbers[i]);
 // // }
 
@@ -310,8 +262,6 @@
 //     }
 // });
 // console.log(newNumbers);
-
-
 
 // Потрібно створити функцію  яка буде находити вмасиві елементи що дублюються а потім ці елементи додати в новий масив.
 
@@ -327,8 +277,8 @@
 //   for (let i = 0; i < items.length; i += 1) {
 //     for (let j = i + 1; j < items.length; j += 1) {
 //       if (items[i] === items[j]) {
-//         elements.push(items[i]); 
-//       } 
+//         elements.push(items[i]);
+//       }
 //     }
 //   }
 //   return elements;
@@ -341,21 +291,19 @@
 // const items = [1, 2, 3, 2, 1, 1, 17, 19];
 
 // function findElements(items) {
-   
+
 //   for (let i = 0; i < items.length; i += 1) {
 //     for (let j = i + 1; j < items.length; j += 1) {
 //       if (items[i] === items[j]) {
 //        items.splice(j, 1);
 //        j -= 1;
-//       } 
+//       }
 //     }
 //   }
 //   return items;
 // }
 
 // console.log(findElements(items));
-
-
 
 //  Зробіть функцію, яка бере масив імен людей, які поставили лайки. Вона має повернути текст, як вказано у прикладах:
 
@@ -365,7 +313,6 @@
 // ["Max", "John", "Mark"]           -->  "Max, John and Mark like this"
 // ["Alex", "Jacob", "Mark", "Max"]  -->  "Alex, Jacob and 2 others like this"
 
-
 // 1.Створити функцію;
 // 2.Створюємо змінну;
 // 3.Перевірити довжину масиву,якщо пустий повертаєм рядок  "no one likes this";
@@ -373,7 +320,6 @@
 // Якщо довжина масиву 2, то ми беремо [0] and [1] + like this;
 // Якщо довжина масиву 3, то беремо  [0], [1] and [2] + like this;
 // Якщо довжина масиву 4 і більше, то беремо  [0] + [1] and + (довжина масиву - 2);
-
 
 // function nameLike (names) {
 //   let message = "no one likes this";
@@ -412,8 +358,8 @@
 // 1.Перебрати масив
 // 2.створити змінну
 
-// Книга Гарі Потер є в: 
-// 1 Anna 
+// Книга Гарі Потер є в:
+// 1 Anna
 // 2 Oliksii
 
 // const friends = [
@@ -435,7 +381,6 @@
 
 // console.log( filteredFriwnds );
 
-
 // 2.
 // const str = 'numbers';
 
@@ -452,14 +397,12 @@
 
 // console.log(obj);
 
-
 // 3.
 
 // Потрібно створити функцію яка буде приймати 2 параметри(значення з промпту)
 // 1 промпт значення від якої суми робити пошук
 // 2 промпт значення до якої суми робити пошук
 // Повертає список автомобілів які підпадають під наш пошук
-
 
 // const cars = [{
 //     car: 'Honda',
@@ -493,14 +436,13 @@
 //   carsFind.reduce(
 //   (acc, { car, type, price }, index) => {
 //   return (acc += `${index +1} ${car} ${type}, ціна ${price}\n`)
-//   }, 
+//   },
 //   carsFind.length
 //    ? `кількість знайдених автомобілів ${carsFind.length}:\n`
 //     : 'Вибачте за вашимим пошуком жодного авто не було знайдено');
 // };
 
 // console.log(filteredCars(minPrice, maxPrice));
-
 
 // 4.
 
@@ -538,7 +480,6 @@
 //     ],
 // },
 // ];
-
 
 // const genres = [{
 //     id: 28,
@@ -586,17 +527,12 @@
 //   });
 //   console.log(films);
 
-
-
-
 // 13.08
-
 
 // const user = {
 //     name: 'NAME',
 //     cardName: 'private',
 //     balance: 2000,
-
 
 //     getSum() {
 //         console.log(this.balance)
@@ -613,7 +549,6 @@
 
 // user.addSum()
 
-
 // const user2 = {
 //     name: 'Anna',
 //     cardName: 'private',
@@ -624,7 +559,6 @@
 
 // user.addSum.call(user2, 200)
 
-
 // const user3 = {
 //     name: 'Ivan',
 //     cardName: 'private',
@@ -634,7 +568,6 @@
 // user.getSum.apply(user3)
 
 // user.addSum.apply(user3, [200]);
-
 
 // const user4 = {
 //     name: 'Anton',
@@ -650,11 +583,7 @@
 // foo1(500);
 // foo1(500);
 
-
-
-
 // Прототипне наслідування
-
 
 // String.prototype.hello = function(name){
 //     console.log(`hallo my name ${name}`)
@@ -663,8 +592,6 @@
 // const str = '1, 2, 3'
 
 // str.hello('Ivan')
-
-
 
 // const user = {
 //     name: 'Ivan',
@@ -678,9 +605,6 @@
 // admin.name = 'Alina'
 
 // console.log(admin.year)
-
-
-
 
 // батько:
 // class User {
@@ -709,8 +633,8 @@
 
 // class Human extends User{
 //     constructor(name, email, password, hp, demmage) {
-//         super(name, email, password); 
-//         this.hp = hp; 
+//         super(name, email, password);
+//         this.hp = hp;
 //         this.demmage = demmage;
 //     }
 
@@ -727,9 +651,6 @@
 // виклик нового об'єкту:
 
 // user1.password = 'qweqwe'; При виклику юзер1 пасворд ми можемо за допомогою метода  батьківського об'єкту змінити пароль.
-
-
-
 
 // class Warior extends Human {
 //     constructor(name, email, password, hp, demmage, armor) {
@@ -766,9 +687,6 @@
 // const user1 = new Warior('Miki', 'miki@gmail.com', 'qwerty123', 1000, 250);
 // console.log(user1);
 
-
-
-
 // // console.log(user1);
 
 // // console.log(user1.name);
@@ -778,8 +696,6 @@
 // // user1.password = 'gaz';
 
 // // console.log(user1);
-
-
 
 // const select = document.querySelector(".pizza-select");
 // const textOutput = document.querySelector(".text-output");
@@ -797,7 +713,6 @@
 //   textOutput.textContent = selectedOptionText;
 //   valueOutput.textContent = selectedOptionValue;
 // }
-
 
 // console.log(selectedOptionValue );
 
@@ -854,7 +769,7 @@
 
 // 		const currentCart = event.target.closest('.item')
 // 		const currentId = currentCart.dataset.id
- 
+
 // 		const obj = instruments.find((element) => element.id === Number(currentId));
 // 		const addedItem = basket.find((element) => element.id === Number(currentId));
 
@@ -868,7 +783,6 @@
 // 		}
 // 		console.log(basket);
 // 	}
-
 
 // 	if(event.target.classList.contains('js-favourite')){
 
@@ -915,19 +829,15 @@
 // 			    <p class="">${instrument.date.getDate()
 // 					}</p>
 // 			    <p class="">Кількість: ${instrument.qty}</p>
-// 			    <button class="js-remove">Remove</button>    
+// 			    <button class="js-remove">Remove</button>
 // 		    </li>`
 
 // 	},'');
 // 	refs.container.innerHTML = basketMarkup;
 
-
 // }
 
-
-
 // локальне сховище________________________________________________
-
 
 // Створює новий запис у сховищі у вигляді рядка
 // localStorage.setItem('my-data', JSON.stringify({name: 'Mango', age: 2}));
@@ -935,26 +845,26 @@
 // // повертає значення зі сховища
 // const saveData = localStorage.getItem('my-data');
 // const parsedData = JSON.parse(saveData);
-// console.log(parsedData); 
+// console.log(parsedData);
 // import { refs } from "./scripts/refs";
 
 // // функція створення лішки
 // const createLi = (text) => `<li data-id='${text}'>${text}</li>`;
-    
+
 // // вставка розмітки на екран
 //   const addLiToList = (markdown) => {
 //     refs.list.insertAdjacentHTML('beforeend', markdown);
 // }
-  
+
 // const handlerSubmit = (e) => {
 //     // забороняєм перезавантажувати сторінку
-//   e.preventDefault();            
+//   e.preventDefault();
 //   //   дістаємо значення інпуту
-//   const value = refs.input.value; 
-//    //   value запишеться в text  і передасться в лішку 
-//   const liItem = createLi(value);  
-//    //   лішка вставиться в ул  
-//   addLiToList(liItem);             
+//   const value = refs.input.value;
+//    //   value запишеться в text  і передасться в лішку
+//   const liItem = createLi(value);
+//    //   лішка вставиться в ул
+//   addLiToList(liItem);
 //   //   отримали доступ до сторедж
 //   const list = localStorage.getItem('list');
 //   try { // якщо клас ліст є то парсимо ліст якщо ні то створєм новий []
@@ -964,11 +874,11 @@
 //     // перетворюємо в JSON
 //     const updatedList = JSON.stringify(listData);
 //     // записуємо новий json в сторедж
-//     localStorage.setItem('list', updatedList);  
+//     localStorage.setItem('list', updatedList);
 //   }catch (error) {
 //     console.log('parsing error');
 //   }
-//   refs.input.value.reset;  
+//   refs.input.value.reset;
 // }
 
 // refs.form.addEventListener('submit', handlerSubmit);
@@ -978,7 +888,7 @@
 //     const list = localStorage.getItem('list');
 //  try {
 //     const savedList = JSON.parse(list);
-//     const markdown = savedList.reduce((acc, text) => acc +  createLi(text), ""); 
+//     const markdown = savedList.reduce((acc, text) => acc +  createLi(text), "");
 //     addLiToList(markdown);
 //  } catch (error) {
 //     console.log('parsing error');
@@ -987,14 +897,10 @@
 // // запусти фун ю для завантаження сторінки
 // addEventListener('DOMContentLoaded', handleMount);
 
-
-
-
-
 // // setTimeout  ________________________________
 
 // // Оповіщення__________________________
-    
+
 // const NOTIFICATION_DELAY = 3000;
 // let timeoutId = null;
 
@@ -1007,14 +913,11 @@
 // // при завантаженні сторінки показується оповіщення
 // showNotification();
 
-
-
 // // при кліку на оповіщення очищаємо сет таймаут і ховаємо оповіщення
 // function onNotificationClick() {
 //     hideNotification();
 //     clearTimeout(timeoutId);
 // }
-
 
 // // функція показу оповіщення
 // function showNotification() {
@@ -1027,12 +930,10 @@
 
 // }
 
-// // функція схову оповіщення 
+// // функція схову оповіщення
 // function hideNotification() {
 //     refs.notification.classList.remove('is-visible');
 // }
-
-
 
 // // setInterval______________________________________
 // // Модальне вікно з проханням підписатись_______________
@@ -1054,10 +955,7 @@
 //   promptCounter += 1;
 // }, PROMPT_DELAY);
 
-
-
 // модуль 10  HTTP HTTPS ЗАПИТИ
-
 
 // fetch('https://pokeapi.co/api/v2/pokemon/2')
 // .then(response => {
@@ -1070,16 +968,15 @@
 //     console.log(error);
 // });
 
-
 // function fetchCountries(nameCountry) {
 //     return fetch(`https://restcountries.com/v3.1/name/${nameCountry}`)
 //      .then(response => {
 //        if (response.status !== 200) {
 //            throw new Error(response.status);;
-//        } 
+//        }
 //        return response.json();
 //      });
-     
+
 //    }
 
 //    import './css/styles.css';
@@ -1102,18 +999,18 @@
 //   const nameCountry = refs.inputEl.value.trim();
 //   if (!nameCountry  ) {
 //     refs.countryList.innerHTML = '';    refs.countryInfo.innerHTML = '';
-//     return;  
+//     return;
 //     }
 
 //   console.log(nameCountry);
 
 //     fetchCountries(nameCountry)
 //     .then(onCountry)
-//     .catch(onError) 
+//     .catch(onError)
 // }
 
 // function onCountry(countries) {
-    
+
 //     refs.countryList.innerHTML = '';
 //     refs.countryInfo.innerHTML = '';
 //     if (countries.length > 10) {
@@ -1137,18 +1034,14 @@
 //             <p>Languages: ${Object.values(languages)}</p>
 //             </div>`
 //       }).join('');
-//       refs.countryInfo.innerHTML = markup;  
+//       refs.countryInfo.innerHTML = markup;
 //    }
-  
-// }
-    
 
-// function onError() { 
-//     Notify.failure('Oops, there is no country with that name.'); 
 // }
 
-
-
+// function onError() {
+//     Notify.failure('Oops, there is no country with that name.');
+// }
 
 // ------------------------
 
@@ -1167,8 +1060,6 @@
 
 // -------------------------
 
-
-
 // Реалізуйте функціонал отримання даних з API по кліку на кнопку "BUTTON" і виведення їх
 // на сторінку при кожному кліку по кнопці. Кожен факт має мати свій порядковий номер.
 
@@ -1179,14 +1070,12 @@
 
 // let number = 0;
 
-
 // btn.addEventListener('click', onBtnClick);
 
 // async function onBtnClick() {
 //     const fact = await fetch("https://catfact.ninja/fact").then(response => response.json());
 //     makePargrarh(fact.fact)
 // };
-
 
 // function makePargrarh(text) {
 //     console.log(text);
@@ -1197,12 +1086,10 @@
 
 // ------------------------------------------------
 
-
 // ----------------------------
 
 // // Реалізуйте функціонал пошуку даних по юзеру з API при сабміті форми і виведення їх на сторінку
 // // https://agify.io/
-
 
 // const formEl = document.querySelector('.userForm');
 // const userList = document.querySelector('.userList');
@@ -1216,7 +1103,6 @@
 //     fetchUser(userName);
 // }
 
-
 // async function  fetchUser(userName) {
 //   const userInf = await fetch(`https://agify.io/?name=${userName}`).then((res) => res.json());
 //   renderUserInfo(userInf);
@@ -1227,9 +1113,7 @@
 //     userList.insertAdjacentHTML('beforeend', `<li>name: ${name} age: ${age}</li>`);
 // }
 
-
 // ----------------------------------------
-
 
 // // Реалізуйте функціонал створення зображень при клікові на кнопку BUTTON
 // // https://dog.ceo/dog-api/
@@ -1246,7 +1130,6 @@
 
 // }
 
-
 // function onRender(imageUrl) {
 //     const markup = `<div><img src="${imageUrl}"/><div>`
 //    bodyEl.insertAdjacentHTML('beforeend', markup);
@@ -1260,19 +1143,13 @@
 // // 2. Створити розмітку картки покемона
 // // 3. При клікові по картці покемона - відкривати модалку з даними по покемону на якого ми клікнули
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function fetchFilms(nameFilms) {
+  return fetch(
+    `/discover/movie?sort_by=popularity.desc/name/${nameFilms}`
+  ).then((response) => {
+    if (response.status !== 200) {
+      throw new Error(response.status);
+    }
+    return response.json();
+  });
+}

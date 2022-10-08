@@ -1,120 +1,114 @@
-задача 1
+// задача 1
 
-function getRandomHexColor() {
-    return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-}
+// function getRandomHexColor() {
+//     return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+// }
 
-const refs = {
-    body: document.querySelector('body'),
-    btnStart: document.querySelector('[data-start]'),
-    btnStop: document.querySelector('[data-stop]'),
-};
+// const refs = {
+//     body: document.querySelector('body'),
+//     btnStart: document.querySelector('[data-start]'),
+//     btnStop: document.querySelector('[data-stop]'),
+// };
 
-let  timerId = null;
+// let  timerId = null;
 
-refs.btnStart.addEventListener('click', onClickBtnStart);
-refs.btnStop.addEventListener('click', onClickBtnStop);
+// refs.btnStart.addEventListener('click', onClickBtnStart);
+// refs.btnStop.addEventListener('click', onClickBtnStop);
 
-function onClickBtnStart() {
-    refs.btnStart.disabled = true;
-    refs.btnStop.disabled = false;
+// function onClickBtnStart() {
+//     refs.btnStart.disabled = true;
+//     refs.btnStop.disabled = false;
 
-    timerId = setInterval(() => {
-        refs.body.style.background = getRandomHexColor();
-    }, 1000);
- 
-};
-    
-function  onClickBtnStop() {
-    refs.btnStart.disabled = false;
-    refs.btnStop.disabled = true;
+//     timerId = setInterval(() => {
+//         refs.body.style.background = getRandomHexColor();
+//     }, 1000);
 
-    clearInterval(timerId);
-};
+// };
 
+// function  onClickBtnStop() {
+//     refs.btnStart.disabled = false;
+//     refs.btnStop.disabled = true;
 
-задача 2
+//     clearInterval(timerId);
+// };
 
-import flatpickr from "flatpickr";
-import "flatpickr/dist/flatpickr.min.css";
+// задача 2
 
-const refs = {
-    btnStart: document.querySelector('button[data-start]'),
-    inputField: document.querySelector('#datetime-picker'),
-    days: document.querySelector('[data-days]'),
-    hours: document.querySelector('[data-hours]'),
-    minutes: document.querySelector('[data-minutes]'),
-    seconds: document.querySelector('[data-seconds]'),
-};
- 
-let selectedTime = null;
-const currentDate =  new Date();
-let intervalId = null;
+// import flatpickr from "flatpickr";
+// import "flatpickr/dist/flatpickr.min.css";
 
-refs.btnStart.setAttribute('disabled', true);
+// const refs = {
+//     btnStart: document.querySelector('button[data-start]'),
+//     inputField: document.querySelector('#datetime-picker'),
+//     days: document.querySelector('[data-days]'),
+//     hours: document.querySelector('[data-hours]'),
+//     minutes: document.querySelector('[data-minutes]'),
+//     seconds: document.querySelector('[data-seconds]'),
+// };
 
-const options = {
-  enableTime: true,
-    time_24hr: true,
-    defaultDate: new Date(),
-    minuteIncrement: 1,
-    onClose(selectedDates) {
-      if(selectedDates[0] < currentDate) {
-        window.alert("Please choose a date in the future"); 
-        refs.btnStart.setAttribute('disabled', true);
-      }
+// let selectedTime = null;
+// const currentDate =  new Date();
+// let intervalId = null;
 
-      if(selectedDates[0] > currentDate) {
-        selectedTime = selectedDates[0];
-        refs.btnStart.disabled = false;
-      }
-      console.log(selectedDates[0]);
-    },
-};
+// refs.btnStart.setAttribute('disabled', true);
 
-flatpickr(refs.inputField, options);
+// const options = {
+//   enableTime: true,
+//     time_24hr: true,
+//     defaultDate: new Date(),
+//     minuteIncrement: 1,
+//     onClose(selectedDates) {
+//       if(selectedDates[0] < currentDate) {
+//         window.alert("Please choose a date in the future");
+//         refs.btnStart.setAttribute('disabled', true);
+//       }
 
+//       if(selectedDates[0] > currentDate) {
+//         selectedTime = selectedDates[0];
+//         refs.btnStart.disabled = false;
+//       }
+//       console.log(selectedDates[0]);
+//     },
+// };
 
-refs.btnStart.addEventListener('click',onStartTimer);
+// flatpickr(refs.inputField, options);
 
-function onStartTimer() {
-  refs.btnStart.setAttribute('disabled', true);
-  
+// refs.btnStart.addEventListener('click',onStartTimer);
 
-  intervalId = setInterval(() => {
-   const deltaTime =  selectedTime - Date.now();
-   if(deltaTime <= 1000) {
-    clearInterval(intervalId);
-   }
-   const { days, hours, minutes, seconds } = convertMs(deltaTime);
-   console.log(`${days}:${hours}:${minutes}:${seconds}`);
+// function onStartTimer() {
+//   refs.btnStart.setAttribute('disabled', true);
 
-    refs.days.textContent = addLeadingZero(days);
-    refs.hours.textContent = addLeadingZero(hours);
-    refs.minutes.textContent = addLeadingZero(minutes);
-    refs.seconds.textContent = addLeadingZero(seconds);
-    
-  }, 1000);
+//   intervalId = setInterval(() => {
+//    const deltaTime =  selectedTime - Date.now();
+//    if(deltaTime <= 1000) {
+//     clearInterval(intervalId);
+//    }
+//    const { days, hours, minutes, seconds } = convertMs(deltaTime);
+//    console.log(`${days}:${hours}:${minutes}:${seconds}`);
 
-};
+//     refs.days.textContent = addLeadingZero(days);
+//     refs.hours.textContent = addLeadingZero(hours);
+//     refs.minutes.textContent = addLeadingZero(minutes);
+//     refs.seconds.textContent = addLeadingZero(seconds);
 
-function convertMs(ms) {
-    const second = 1000;
-    const minute = second * 60;
-    const hour = minute * 60;
-    const day = hour * 24;
-  
-    const days = addLeadingZero(Math.floor(ms / day));
-    const hours = addLeadingZero(Math.floor((ms % day) / hour));
-    const minutes = addLeadingZero(Math.floor(((ms % day) % hour) / minute));
-    const seconds = addLeadingZero(Math.floor((((ms % day) % hour) % minute) / second));
-  
-    return { days, hours, minutes, seconds };
-}
+//   }, 1000);
 
-function addLeadingZero(value) {
-    return String(value).padStart(2, '0');
-}
+// };
 
+// function convertMs(ms) {
+//     const second = 1000;
+//     const minute = second * 60;
+//     const hour = minute * 60;
+//     const day = hour * 24;
 
+//     const days = addLeadingZero(Math.floor(ms / day));
+//     const hours = addLeadingZero(Math.floor((ms % day) / hour));
+//     const minutes = addLeadingZero(Math.floor(((ms % day) % hour) / minute));
+//     const seconds = addLeadingZero(Math.floor((((ms % day) % hour) % minute) / second));
 
+//     return { days, hours, minutes, seconds };
+// }
+
+// function addLeadingZero(value) {
+//     return String(value).padStart(2, '0');
+// }
